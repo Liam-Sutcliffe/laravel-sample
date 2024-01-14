@@ -53,6 +53,9 @@ jobs:
         with:
           name: php-app
           
+      - name: List files in the current directory
+        run: ls -l
+
       - name: Set up .env file
         run: cp .env.example .env
     
