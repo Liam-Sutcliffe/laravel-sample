@@ -52,6 +52,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: php-app
+          
+      - name: Set up .env file
+        run: cp .env.example .env
+    
+      - name: Generate Laravel APP_KEY
+        run: echo "APP_KEY=$(php artisan key:generate --show)" >> .env
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
